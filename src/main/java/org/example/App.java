@@ -42,7 +42,7 @@ public class App {
                 if(lst.size() == 0){
                     System.out.println("등록된 명언이 없습니다.");
                 }else {
-                    for (int i = 0; i < lst.size(); i++) {
+                    for (int i = lst.size()-1; i >=0; --i) {
                         Sayings s = lst.get(i);
                         System.out.println(s.getId() + "  " + s.getAuthor() + "   " + s.getSaying());
                     }
@@ -50,7 +50,7 @@ public class App {
             }
             else if(cmd.equals("delete")){
                 int n = sc.nextInt();
-                
+
             }
             else  {
                 System.out.println("사용할 수 없는 명령어입니다.");
