@@ -46,8 +46,11 @@ public class App {
 //                    Collections.reverse(lst);
                     for (int i = lst.size()-1; i >=0; --i) {
                         Sayings s = lst.get(i);
-                        
-                        System.out.println(s.getId() + "  " + s.getAuthor() + "   " + s.getSaying().substring(0,5)+". . .");
+                        if(s.getSaying().length()>=5) {
+                            System.out.println(s.getId() + "  " + s.getAuthor() + "   " + s.getSaying().substring(0, 5) + ". . .");
+                        }else{
+                            System.out.println(s.getId() + "  " + s.getAuthor() + "   " + s.getSaying());
+                        }
                     }
                 }
             }
