@@ -45,18 +45,39 @@ public class MotivationController {
     }
 
     public void delete(String cmd) {
-        int n = Integer.parseInt(cmd.split(" ")[1]);
+        String[] str = cmd.split(" ");
+        if (str.length > 2) {
+            System.out.println("delete 뒤에는 숫자만 입력 가능합니다.1");
+            return;
+        }
+        int n;
+        try {
 
+            n = Integer.parseInt(cmd.split(" ")[1]);
+        } catch (NumberFormatException e) {
+            System.out.println("delete 뒤에는 숫자만 입력 가능합니다.2");
+            return;
+        }
+        catch(IndexOutOfBoundsException ie){
+            System.out.println("delete 한 칸 띄고 숫자 입력하십시오.");
+            return;
+        }
         int idx = -1;
         Sayings s = null;
-        for(int i=0; i<lst.size(); i++){
-            s = lst.get(i);
-            if(s.getId()== n){
+        for (int i = 0; i < lst.size(); i++) {
+            if (lst.get(i).getId() == n) {
                 idx = i;
             }
         }
-        lst.remove(idx);
-        System.out.println(n + "번 글이 삭제되었습니다.");
+
+        if (idx != -1) {
+            lst.remove(idx);
+            System.out.println(n + "번 글이 삭제되었습니다.");
+        }
+        else if (!lst.contains(idx)) {
+            System.out.println(n + "번 글이 없습니다.");
+        }
 //        lst.remove(idx);
+
     }
 }
