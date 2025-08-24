@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Collections;
 
 public class App {
 
@@ -42,9 +43,11 @@ public class App {
                 if(lst.size() == 0){
                     System.out.println("등록된 명언이 없습니다.");
                 }else {
+//                    Collections.reverse(lst);
                     for (int i = lst.size()-1; i >=0; --i) {
                         Sayings s = lst.get(i);
-                        System.out.println(s.getId() + "  " + s.getAuthor() + "   " + s.getSaying());
+                        
+                        System.out.println(s.getId() + "  " + s.getAuthor() + "   " + s.getSaying().substring(0,5)+". . .");
                     }
                 }
             }
