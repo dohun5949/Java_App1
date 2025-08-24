@@ -10,6 +10,15 @@ public class Sayings {
         this.author = author;
     }
 
+    @Override
+    public String toString() {
+        return "Sayings{" +
+                "id=" + id +
+                ", saying='" + saying + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }

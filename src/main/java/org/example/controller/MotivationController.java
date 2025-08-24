@@ -8,13 +8,14 @@ import org.example.Sayings;
 
 public class MotivationController {
     private Scanner sc;
-    private static int lastid = 0;
-    private static List<Sayings> lst = new ArrayList<>();
+    private int lastid = 0;
+    private List<Sayings> lst = new ArrayList<>();
 
-    public MotivationController(Scanner sc){
-        this.sc =sc;
+    public MotivationController(Scanner sc) {
+        this.sc = sc;
     }
-    public static void add(Scanner sc) {
+
+    public void add(Scanner sc) {
         System.out.print("명언 : ");
         String motivation = sc.nextLine().trim();
         System.out.print("저자 : ");
@@ -25,7 +26,7 @@ public class MotivationController {
         System.out.println(lastid + "번 명언이 등록되었습니다.");
     }
 
-    public static void list() {
+    public void list() {
         System.out.println("=".repeat(20));
         System.out.println("번호  저자  명언 ");
         if (lst.size() == 0) {
@@ -41,5 +42,21 @@ public class MotivationController {
                 }
             }
         }
+    }
+
+    public void delete(String cmd) {
+        int n = Integer.parseInt(cmd.split(" ")[1]);
+
+        int idx = -1;
+        Sayings s = null;
+        for(int i=0; i<lst.size(); i++){
+            s = lst.get(i);
+            if(s.getId()== n){
+                idx = i;
+            }
+        }
+        lst.remove(idx);
+        System.out.println(n + "번 글이 삭제되었습니다.");
+//        lst.remove(idx);
     }
 }
